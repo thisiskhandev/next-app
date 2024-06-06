@@ -1,0 +1,22 @@
+$primary-color: -webkit-linear-gradient(
+  90deg,
+  rgb(71, 222, 185) 0%,
+  rgb(17, 239, 143) 100%
+);
+$secondary-color: rgb(2, 181, 233);
+$text-black: rgb(0, 0, 0);
+$field-color: rgb(232, 232, 232);
+$text-white: rgb(255, 255, 255);
+$text-color-3: rgb(200, 200, 200);
+
+:export {
+  primaryColor: $primary-color;
+  secondaryColor: $secondary-color;
+  textBlack: $text-black;
+  textWhite: $text-white;
+  fieldColor: $field-color;
+}
+
+.primaryColor {
+  color: $primary-color;
+}

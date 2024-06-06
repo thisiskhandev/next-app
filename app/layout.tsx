@@ -1,8 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Rajdhani } from "next/font/google";
 import "./globals.css";
+import "./styles/styles.scss";
 
-const inter = Inter({ subsets: ["latin"] });
+import { NextUIProvider } from "@nextui-org/react";
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
+import ProviderWrapper from "@/provider";
+
+// const inter = Inter({ subsets: ["latin"] });
+// '"devanagari" | "latin" | "latin-ext"'
+const rajdhani = Rajdhani({
+  subsets: ["devanagari", "latin", "latin-ext"],
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +27,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={rajdhani.className}>
+        <ProviderWrapper>
+          {/* <Provider store={store}> */}
+          <NextUIProvider>{children}</NextUIProvider>
+          {/* </Provider> */}
+        </ProviderWrapper>
+      </body>
     </html>
   );
 }
